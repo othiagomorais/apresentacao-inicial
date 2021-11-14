@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+
+html{
+    background: linear-gradient(#2226ff,#5ce4e9);
+    min-height: 100%
+}
+
+body{
+    font-family: 'Oswald', sans-serif;
+}
+
+main{
+    display: flex; /*uma maneira de posicionar elementos na tela*/
+    justify-content: center; /*alinhar os itens horizontalmente no centro*/
+    align-items: center; /*alinhar os itens verticalmente no centro*/
+    min-height: 100vh; /*100% da tela*/
+}
+
+.faq{
+    width: 65%;
+    min-height: 450px;
+    box-shadow: 0px 25px 50px rgba(0, 0, 0.3, 0.3); /*sombreamento na caixa central*/
+    background-color:white;
+    display: flex; /*conteúdos um ao lado do outro. em sistema de linhas. por padrão o flex-direction: row
+                    ao usar flex-direction: column os itens ficariam um abaixo do outros, numa coluna */
+    align-items: center;
+    border-radius: 30px /*bordas arredondadas*/
+}
+
+.faq .ilustracao{ /*usar uma classe filha de outra para especificar que as alteração serão especificamente
+                    na classe ilustracao que tiver dentro de faq */
+    position: relative;
+    left: -120px;
+    width: 50%;
+    margin: 50px 0; /*distancia do conteúdo. o 50px é para cima e para baixo, o 0 é para direita e esquerda*/
+}
+
+.faq .conteudo{
+    width: 40%;
+    padding-bottom: 30px; /*afastar o conteúdo da borda de seu local para todos os lados
+                            o bottom indica que é só em baixo. Se fosse só padding seriam
+                            para todos os lados*/
+}
+
+.faq .conteudo h1{
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color:navy
+}
+
+.faq .conteudo .items{
+    list-style-type: none;
+}
+
+.faq .conteudo .items .item{
+    cursor: pointer;
+    background-image: url(../imagens/seta-para-baixo.png);
+    background-repeat: no-repeat;
+    background-position: top 8px right 0;
+    background-size: 12px;
+    border-bottom: 2px solid #ccc;
+    margin: 10px 0;
+}
+
+/* .resposta .fotoResposta {
+    position: relative;
+    left: 0px;
+    width: 10%;
+    margin: 50px 0; */
+
+}
+
+
+.faq .conteudo .items .item:last-child{
+    border-bottom: none;
+}
+
+.item .pergunta{
+    padding-bottom: 10px;
+    font-size: 18px;
+    width: 90%;
+    transition: 0.2s ease; /*nunca colocar o transition no hovewr*/
+}
+
+.item .pergunta:hover { /*indicar que quando passar o mouse é para acontecer algo*/
+    color:rgb(255, 37, 37)
+}
+
+.item .resposta{
+    display: none;
+    padding-bottom: 15px;
+}
+/*estios do  item ativo, quando clicar em uma pergunta*/
+
+.faq .items .item.ativo h2 {/*queremos estilizar um elemento que tem essas duas classes*/
+    font-weight: 700;
+
+    }
+
+.faq .items .item.ativo .resposta{
+   display: block;
+    
+}
+
+.faq .items .item.ativo {
+    background-image: url(../imagens/seta-para-cima.png);
+
+}
+
+
+@media(max-width: 940px){ /*responsividade */
+    .faq{
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .faq .conteudo{
+        width: 100%;
+    }
+
+    .faq .conteudo h1{
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .faq .items{
+        width: 80%;
+        margin: 0 auto; /*para o que o conteúdo fique no centro do quadrado do cnteúdo.
+                        só funcionar se o item tiver a largura especificada*/
+    }
+
+    .faq .items .pergunta{
+        font-size: 16px;
+    }
+
+    .faq .ilustracao{
+       width: 40%;
+       left: 0;
+       margin: 30px 0;
+    }
+
+}
+
+@media(max-width: 425px){ /*responsividade */
+    .faq {
+        height: 540px;
+    }
+
+}
